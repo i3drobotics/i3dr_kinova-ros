@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package format="2">
 
-  <name>i3dr_ur10</name>
+  <name>i3dr_kinova</name>
   <version>0.0.1</version>
   <description>
-    Control package for i3dr devices and universal robots (UR10)
+    Control package for I3DR stereo cameras and Kinova robotic arms
   </description>
 
   <maintainer email="bknight@i3drobotics.com">Ben Knight</maintainer>
