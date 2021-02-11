@@ -1,0 +1,28 @@
+- git:
+    local-name: i3dr_stereo_camera-ros
+    uri: https://github.com/i3drobotics/i3dr_stereo_camera-ros.git
+    version: master
+- git:
+    local-name: i3dr_pcl_tools-ros
+    uri: https://github.com/i3drobotics/i3dr_pcl_tools-ros.git
+    version: master
+- git:
+    local-name: i3dr_titania-ros
+    uri: https://github.com/i3drobotics/i3dr_titania-ros.git
+    version: master
+- git:
+    local-name: camera_control_msgs
+    uri: https://github.com/i3drobotics/camera_control_msgs.git
+    version: indigo-devel
+- git:
+    local-name: pylon_camera
+    uri: https://github.com/i3drobotics/pylon_camera.git
+    version: master
+- git:
+    local-name: i3dr_kinova-ros
+    uri: https://github.com/i3drobotics/i3dr_kinova-ros.git
+    version: master
+- git:
+    local-name: kinova-ros
+    uri: https://github.com/Kinovarobotics/kinova-ros.git
+    version: master

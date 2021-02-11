@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+    </scene>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>3.48639 -1.38986 2.3538 -0 0.541795 2.60381</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <include>
+      <uri>model://cyberzoo</uri>
+      <pose>0 0 0 0 0 0.454</pose>
+    </include>
+    <include>
+      <uri>model://traffic_mat</uri>
+      <name>traffic_mat1</name>
+      <pose>-1.57 -2.16 0 0 0 1.62</pose>
+    </include>
+    <include>
+      <uri>model://traffic_mat</uri>
+      <name>traffic_mat2</name>
+      <pose>-2.09 1.44 0 0 0 1.99</pose>
+    </include>
+    <include>
+      <uri>model://traffic_mat</uri>
+      <name>traffic_mat3</name>
+      <pose>1.14 1.29 0 0 0 3.75</pose>
+    </include>
+    <include>
+      <uri>model://metal_panel1</uri>
+      <name>metal_panel1_1</name>
+      <pose>-1.127470 -1.966387 0 0 0 2.261660</pose>
+    </include>
+    <include>
+      <uri>model://metal_panel2</uri>
+      <name>metal_panel2_1</name>
+      <pose>2.447252 -0.715091 0 0 0 1.411153</pose>
+    </include>
+    <!-- A sphere -->
+    <model name="sphere1">
+      <pose>0.8 1.7 0.25 0 0 0</pose>
+      <link name="sphere_body">
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="geom">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grass</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+    <model name="sphere2">
+      <pose>-0.6 1.8 0.2 0 0 0</pose>
+      <link name="sphere_body">
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="geom">
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grass</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <static>true</static>
+    </model>
+  </world>
+</sdf>
