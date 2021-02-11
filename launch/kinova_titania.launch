@@ -19,7 +19,7 @@
 
     <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find i3dr_ur10)/worlds/room.world"/>
+        <arg name="world_name" value="$(find i3dr_kinova)/worlds/room.world"/>
         <arg name="debug" value="false" />
         <arg name="gui" value="true" />
         <arg name="paused" value="true"/>
@@ -27,7 +27,7 @@
     </include>
 
     <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find i3dr_ur10)/urdf/i3dr_titania_kinova.urdf.xacro' en_imu:=$(arg imu) camera_name:=$(arg camera_name) en_mesh:=$(arg camera_mesh) arm_name:=$(arg kinova_robotType)"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find i3dr_kinova)/urdf/i3dr_titania_kinova.urdf.xacro' en_imu:=$(arg imu) camera_name:=$(arg camera_name) en_mesh:=$(arg camera_mesh) arm_name:=$(arg kinova_robotType)"/>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- For the 6DOF -->
@@ -126,14 +126,14 @@
 
         <!-- Run Rviz and load the default config to see the state of the move_group node -->
         <node name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false"
-            args="-d $(find i3dr_ur10)/rviz/kinova_titania.rviz" output="screen">
+            args="-d $(find i3dr_kinova)/rviz/kinova_titania.rviz" output="screen">
             <rosparam command="load" file="$(find j2s7s300_moveit_config)/config/kinematics.yaml"/>
         </node>
     </group>
 
     <group unless="$(arg moveit)">
         <node if="$(arg rviz)" name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false"
-            args="-d $(find i3dr_ur10)/rviz/kinova_titania.rviz" output="screen">
+            args="-d $(find i3dr_kinova)/rviz/kinova_titania.rviz" output="screen">
         </node>
     </group>
 
