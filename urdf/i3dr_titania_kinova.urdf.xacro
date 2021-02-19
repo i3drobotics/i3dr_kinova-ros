@@ -8,16 +8,19 @@ Copyright (c) 2019, I3D Robotics Ltd.
 
     <xacro:arg name="en_imu" default="false"/>
     <xacro:arg name="camera_name" default="i3dr_titania"/>
-    <xacro:arg name="arm_name" default="j2s7s300"/>
+    <xacro:arg name="arm_name" default="j2s7s000"/>
     <xacro:arg name="en_mesh" default="true"/>
 
     <xacro:include filename="$(find i3dr_titania)/urdf/titania.urdf.xacro" />
     <xacro:titania_camera camera_name="$(arg camera_name)" en_mesh="$(arg en_mesh)" en_imu="$(arg en_imu)"/>
 
-    <xacro:include filename="$(find kinova_description)/urdf/$(arg arm_name).xacro" />
+    <xacro:include filename="$(find i3dr_kinova)/urdf/interfacing_plate.urdf.xacro" />
+    <xacro:interfacing_plate />
+
+    <xacro:include filename="$(find i3dr_kinova)/urdf/$(arg arm_name).xacro" />
 
     <link name="root" />
-    <xacro:j2s7s300 base_parent="root"/>
+    <xacro:j2s7s000 base_parent="root"/>
 
     <link name="world" />
 
@@ -27,7 +30,7 @@ Copyright (c) 2019, I3D Robotics Ltd.
         <origin xyz="0 0 0.01" rpy="0 0 0" />
     </joint>
 
-    <link name="ground_plane_box">
+    <!--<link name="ground_plane_box">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -50,10 +53,17 @@ Copyright (c) 2019, I3D Robotics Ltd.
         <child link="ground_plane_box" />
         <origin xyz="0 0 -0.25" rpy="0 0 0" />
     </joint>
+    -->
 
-    <joint name="kinova_titania_joint" type="fixed">
-        <origin xyz="0 0 0.09" rpy="-1.57 0 1.57" />
+    <joint name="kinova_interface_joint" type="fixed">
         <parent link="$(arg arm_name)_end_effector" />
+        <child link = "interfacing_plate_base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+    <joint name="interface_titania_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="interfacing_plate_camera_mount_link" />
         <child link="$(arg camera_name)_base_link" />
     </joint>
 </robot>

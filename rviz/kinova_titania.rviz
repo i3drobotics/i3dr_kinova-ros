@@ -7,10 +7,15 @@ Panels:
         - /Global Options1
         - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planned Path1
+        - /TF1
+        - /TF1/Frames1
         - /TF1/Tree1
+        - /RobotModel1
+        - /RobotModel1/Links1
+        - /RobotModel1/Links1/j2s7s000_link_71
         - /MarkerArray1
       Splitter Ratio: 0.785897434
-    Tree Height: 471
+    Tree Height: 455
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -137,19 +142,98 @@ Visualization Manager:
       Value: false
       Velocity_Scaling_Factor: 1
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: true
-      Marker Scale: 0.300000012
+        i3dr_titania_base_link:
+          Value: true
+        i3dr_titania_cameraLeft:
+          Value: true
+        i3dr_titania_cameraLeft_optical:
+          Value: true
+        i3dr_titania_cameraRight:
+          Value: true
+        i3dr_titania_cameraRight_optical:
+          Value: true
+        i3dr_titania_center:
+          Value: true
+        i3dr_titania_depth_optical_frame:
+          Value: true
+        i3dr_titania_mount_base_link:
+          Value: true
+        i3dr_titania_mount_point_1:
+          Value: true
+        i3dr_titania_mount_point_2:
+          Value: true
+        i3dr_titania_probe_mount:
+          Value: true
+        interfacing_plate_base_link:
+          Value: true
+        interfacing_plate_camera_mount_90_link:
+          Value: true
+        interfacing_plate_camera_mount_link:
+          Value: true
+        j2s7s000_end_effector:
+          Value: true
+        j2s7s000_link_1:
+          Value: true
+        j2s7s000_link_2:
+          Value: true
+        j2s7s000_link_3:
+          Value: true
+        j2s7s000_link_4:
+          Value: true
+        j2s7s000_link_5:
+          Value: true
+        j2s7s000_link_6:
+          Value: true
+        j2s7s000_link_7:
+          Value: true
+        j2s7s000_link_base:
+          Value: true
+        root:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 0.200000003
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        world:
+          root:
+            j2s7s000_link_base:
+              j2s7s000_link_1:
+                j2s7s000_link_2:
+                  j2s7s000_link_3:
+                    j2s7s000_link_4:
+                      j2s7s000_link_5:
+                        j2s7s000_link_6:
+                          j2s7s000_link_7:
+                            j2s7s000_end_effector:
+                              interfacing_plate_base_link:
+                                interfacing_plate_camera_mount_link:
+                                  interfacing_plate_camera_mount_90_link:
+                                    i3dr_titania_base_link:
+                                      i3dr_titania_mount_base_link:
+                                        i3dr_titania_center:
+                                          i3dr_titania_cameraLeft:
+                                            i3dr_titania_cameraLeft_optical:
+                                              i3dr_titania_depth_optical_frame:
+                                                {}
+                                          i3dr_titania_cameraRight:
+                                            i3dr_titania_cameraRight_optical:
+                                              {}
+                                        i3dr_titania_mount_point_1:
+                                          {}
+                                        i3dr_titania_mount_point_2:
+                                          {}
+                                        i3dr_titania_probe_mount:
+                                          {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -214,11 +298,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        ground_plane_box:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         i3dr_titania_base_link:
           Alpha: 1
           Show Axes: false
@@ -264,76 +343,59 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        j2s7s300_end_effector:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        j2s7s300_link_1:
+        interfacing_plate_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_2:
+        interfacing_plate_camera_mount_90_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        interfacing_plate_camera_mount_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        j2s7s000_end_effector:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        j2s7s000_link_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_3:
+        j2s7s000_link_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_4:
+        j2s7s000_link_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_5:
+        j2s7s000_link_4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_6:
+        j2s7s000_link_5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_7:
+        j2s7s000_link_6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_base:
+        j2s7s000_link_7:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        j2s7s300_link_finger_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        j2s7s300_link_finger_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        j2s7s300_link_finger_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        j2s7s300_link_finger_tip_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        j2s7s300_link_finger_tip_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        j2s7s300_link_finger_tip_3:
+        j2s7s000_link_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -445,31 +507,31 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.23963881
+      Distance: 0.487563401
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.673787415
-        Y: 0.00620190799
-        Z: 0.580782056
+        X: -0.0579010285
+        Y: 0.0385216139
+        Z: 1.20762861
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.635397911
+      Pitch: 0.135395736
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.66356611
+      Yaw: 0.241700605
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: true
+    collapsed: false
   Height: 1056
-  Hide Left Dock: true
+  Hide Left Dock: false
   Hide Right Dock: true
   Image:
     collapsed: false
@@ -477,7 +539,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000039a00000263fc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000019f00000263000000d700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e006701000001fc000001cb0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067000000020e000001f40000018300ffffff000000010000010f000002affc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002af000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000073f00000171fc0100000003fb0000000a0049006d0061006700650100000000000003b00000005c00fffffffb0000000a0049006d00610067006501000003b6000003890000005c00fffffffb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004b00000003efc0100000002fb0000000800540069006d00650000000000000004b00000030000fffffffb0000000800540069006d006501000000000000045000000000000000000000073f0000026300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000039a00000259fc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006300fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c00610079007301000001a600000259000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e006701000001fc000001cb0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000005000fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067000000020e000001f4000001b100ffffff000000010000010f000002affc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002af000000b700fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000073f00000171fc0100000003fb0000000a0049006d0061006700650100000000000003af0000006700fffffffb0000000a0049006d00610067006501000003b6000003890000006700fffffffb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004b00000003efc0100000002fb0000000800540069006d00650000000000000004b00000038300fffffffb0000000800540069006d006501000000000000045000000000000000000000039e0000025900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:

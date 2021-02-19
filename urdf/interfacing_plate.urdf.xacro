@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+Copyright (c) 2018, I3D Robotics Ltd.
+Edited: 2019, Marti Morta Garriga, Wood.
+-->
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:macro name="interfacing_plate">
+
+    <xacro:property name="mesh_file" value="package://i3dr_kinova/mesh/interfacing_plate_kinova.stl"/>
+    <xacro:property name="mesh_offset_xyz" value="0 0 1.277"/>
+    <xacro:property name="mesh_offset_rpy" value="0 ${pi} ${pi/2}"/>
+    <xacro:property name="mesh_height" value="0.059"/>
+    <xacro:property name="mesh_width" value="0.126"/>
+    <xacro:property name="mesh_length" value="0.0655"/>
+
+    <material name="interfacing_plate_darkgrey">
+        <color rgba= "0.1 0.1 0.1 1.0"/>
+    </material>
+
+    <link name="interfacing_plate_base_link" >
+        <pose>0 0 0 0 0 0</pose>
+
+        <inertial>
+            <mass value="0.05"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    
+        <!--<collision name="interfacing_plate_collision">
+            <geometry>
+                <box size="${mesh_length} ${mesh_width} ${mesh_height}"/>
+            </geometry>
+        </collision>-->
+
+        <visual>
+            <origin xyz="${mesh_offset_xyz}" rpy="${mesh_offset_rpy}"/>
+            <geometry>
+                <mesh filename="${mesh_file}"/>
+            </geometry>
+            <material name="interfacing_plate_darkgrey"/>
+        </visual>
+    </link>
+
+    <link name="interfacing_plate_camera_mount_link" />
+    <link name="interfacing_plate_camera_mount_90_link" />
+
+    <joint name="interfacing_plate_base_camera_joint" type="fixed">
+        <parent link="interfacing_plate_base_link"/>
+        <child link="interfacing_plate_camera_mount_link"/>
+        <origin xyz="-0.0285 -0.0074 0.157" rpy="0 ${pi/2} 0" />
+    </joint>
+
+    <joint name="interfacing_plate_base_camera_90_joint" type="fixed">
+        <parent link="interfacing_plate_camera_mount_link"/>
+        <child link="interfacing_plate_camera_mount_90_link"/>
+        <origin xyz="0.025 0 0" rpy="0 0 ${-pi/2}" />
+    </joint>
+
+    <!-- Attach material to gazebo object -->
+    <gazebo reference="interfacing_plate_mesh_center">
+        <gravity>true</gravity>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>
