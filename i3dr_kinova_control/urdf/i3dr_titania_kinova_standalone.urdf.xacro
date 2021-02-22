@@ -3,7 +3,7 @@
 Copyright (c) 2019, I3D Robotics Ltd.
 -->
 
-<robot name="i3dr_titania_ur10" 
+<robot name="i3dr_titania_kinova" 
     xmlns:xacro="http://wiki.ros.org/xacro">
 
     <xacro:arg name="en_imu" default="false"/>
@@ -13,11 +13,11 @@ Copyright (c) 2019, I3D Robotics Ltd.
 
     <xacro:include filename="$(find i3dr_titania)/urdf/titania.urdf.xacro" />
     <!-- collision disabled in camera to avoid robot getting stuck in the floor at startup -->
-    <xacro:titania_camera camera_name="$(arg camera_name)" en_collision="true" en_mesh="$(arg en_mesh)" en_imu="$(arg en_imu)"/>
+    <xacro:titania_camera camera_name="$(arg camera_name)" en_collision="false" en_mesh="$(arg en_mesh)" en_imu="$(arg en_imu)"/>
 
-    <xacro:include filename="$(find i3dr_kinova)/urdf/interfacing_plate.urdf.xacro" />
+    <xacro:include filename="$(find i3dr_kinova_control)/urdf/interfacing_plate.urdf.xacro" />
     <!-- collision disabled in camera to avoid robot getting stuck in the floor at startup -->
-    <xacro:interfacing_plate en_collision="true" />
+    <xacro:interfacing_plate en_collision="false" />
 
     <xacro:include filename="$(find kinova_description)/urdf/$(arg arm_name).xacro" />
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 set (CMAKE_CXX_STANDARD 11)
-project(i3dr_kinova)
+project(i3dr_kinova_control)
 
 find_package(catkin REQUIRED COMPONENTS
                 roscpp std_msgs tf rospy std_srvs cv_bridge image_transport message_filters message_generation sensor_msgs rtabmap_ros

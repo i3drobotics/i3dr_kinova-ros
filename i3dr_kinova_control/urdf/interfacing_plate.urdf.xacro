@@ -7,7 +7,7 @@ Edited: 2019, Marti Morta Garriga, Wood.
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
     <xacro:macro name="interfacing_plate" params="en_collision:=true">
 
-    <xacro:property name="mesh_file" value="package://i3dr_kinova/mesh/interfacing_plate_kinova.stl"/>
+    <xacro:property name="mesh_file" value="package://i3dr_kinova_control/mesh/interfacing_plate_kinova.stl"/>
     <xacro:property name="mesh_offset_xyz" value="0 0 1.277"/>
     <xacro:property name="mesh_offset_rpy" value="0 ${pi} ${pi/2}"/>
     <xacro:property name="mesh_height" value="0.075"/>

@@ -1,0 +1,13 @@
+controller_list:
+  - name: j2s7s000/effort_joint_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - j2s7s000_joint_1
+      - j2s7s000_joint_2
+      - j2s7s000_joint_3
+      - j2s7s000_joint_4
+      - j2s7s000_joint_5
+      - j2s7s000_joint_6
+      - j2s7s000_joint_7
