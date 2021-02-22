@@ -12,12 +12,14 @@ Copyright (c) 2019, I3D Robotics Ltd.
     <xacro:arg name="en_mesh" default="true"/>
 
     <xacro:include filename="$(find i3dr_titania)/urdf/titania.urdf.xacro" />
-    <xacro:titania_camera camera_name="$(arg camera_name)" en_mesh="$(arg en_mesh)" en_imu="$(arg en_imu)"/>
+    <!-- collision disabled in camera to avoid robot getting stuck in the floor at startup -->
+    <xacro:titania_camera camera_name="$(arg camera_name)" en_collision="true" en_mesh="$(arg en_mesh)" en_imu="$(arg en_imu)"/>
 
     <xacro:include filename="$(find i3dr_kinova)/urdf/interfacing_plate.urdf.xacro" />
-    <xacro:interfacing_plate />
+    <!-- collision disabled in camera to avoid robot getting stuck in the floor at startup -->
+    <xacro:interfacing_plate en_collision="true" />
 
-    <xacro:include filename="$(find i3dr_kinova)/urdf/$(arg arm_name).xacro" />
+    <xacro:include filename="$(find kinova_description)/urdf/$(arg arm_name).xacro" />
 
     <link name="root" />
     <xacro:j2s7s000 base_parent="root"/>

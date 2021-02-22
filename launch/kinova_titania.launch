@@ -19,7 +19,7 @@
     <group if="$(arg sim)">
         <!-- Load gazebo world -->
         <include file="$(find gazebo_ros)/launch/empty_world.launch">
-            <arg name="world_name" value="$(find i3dr_kinova)/worlds/room_empty.world"/>
+            <arg name="world_name" value="$(find i3dr_kinova)/worlds/room.world"/>
             <arg name="debug" value="false" />
             <arg name="gui" value="true" />
             <arg name="paused" value="true"/>
@@ -41,7 +41,7 @@
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find i3dr_kinova)/urdf/i3dr_titania_kinova.urdf.xacro' en_imu:=$(arg imu) camera_name:=$(arg camera_name) en_mesh:=$(arg camera_mesh) arm_name:=$(arg kinova_robotType)"/>
 
     <!-- Kinova control launcher -->
-    <include file="$(find i3dr_kinova)/launch/kinova_control.launch">
+    <include file="$(find kinova_control)/launch/kinova_control.launch">
         <arg name="kinova_robotName" value="$(arg kinova_robotName)"/>
         <arg name="kinova_robotType" value="$(arg kinova_robotType)"/>
         <arg name="use_trajectory_controller" value="$(arg use_trajectory_controller)"/>

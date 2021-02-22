@@ -215,23 +215,24 @@ Visualization Manager:
                             j2s7s000_end_effector:
                               interfacing_plate_base_link:
                                 interfacing_plate_camera_mount_link:
-                                  interfacing_plate_camera_mount_90_link:
-                                    i3dr_titania_base_link:
-                                      i3dr_titania_mount_base_link:
-                                        i3dr_titania_center:
-                                          i3dr_titania_cameraLeft:
-                                            i3dr_titania_cameraLeft_optical:
-                                              i3dr_titania_depth_optical_frame:
-                                                {}
-                                          i3dr_titania_cameraRight:
-                                            i3dr_titania_cameraRight_optical:
+                                  i3dr_titania_base_link:
+                                    i3dr_titania_mount_base_link:
+                                      i3dr_titania_center:
+                                        i3dr_titania_cameraLeft:
+                                          i3dr_titania_cameraLeft_optical:
+                                            i3dr_titania_depth_optical_frame:
                                               {}
-                                        i3dr_titania_mount_point_1:
-                                          {}
-                                        i3dr_titania_mount_point_2:
-                                          {}
-                                        i3dr_titania_probe_mount:
-                                          {}
+                                        i3dr_titania_cameraRight:
+                                          i3dr_titania_cameraRight_optical:
+                                            {}
+                                      i3dr_titania_mount_point_1:
+                                        {}
+                                      i3dr_titania_mount_point_2:
+                                        {}
+                                      i3dr_titania_probe_mount:
+                                        {}
+                                  interfacing_plate_camera_mount_90_link:
+                                    {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -507,25 +508,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.487563401
+      Distance: 3.27272034
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0579010285
-        Y: 0.0385216139
-        Z: 1.20762861
+        X: 0.903461337
+        Y: -0.807843447
+        Z: 0.380772531
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.135395736
+      Pitch: 0.195202559
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.241700605
+      Yaw: 2.37305355
     Saved: ~
 Window Geometry:
   Displays:

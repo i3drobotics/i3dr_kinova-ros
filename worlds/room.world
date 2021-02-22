@@ -19,10 +19,11 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <include>
+    <!-- commented out as robot is getting stuck in floor -->
+    <!--<include>
       <uri>model://cyberzoo</uri>
       <pose>0 0 0 0 0 0.454</pose>
-    </include>
+    </include>-->
     <include>
       <uri>model://traffic_mat</uri>
       <name>traffic_mat1</name>
