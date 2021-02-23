@@ -76,7 +76,24 @@ To mozaic point clouds to create a map as the robot moves, after running the 'ki
 roslaunch i3dr_kinova_control mozaic.launch
 ```
 
-Once the map is complete you can save the map to a file using the following command:
+The mapping process can be paused/resumed using the following services:
 ```
-rosrun i3dr_pcl_tools save_pcl _pcl2_input:=/i3dr_titania/map_points2 _pcl_filepath:=path/to/file.ply
+rosservice call /pause_map
+rosservice call /resume_map
 ```
+
+When paused you can capture a single cloud using the following servce:
+```
+rosservice call /single_step_map
+```
+
+Once the map is complete you can save the map to a file using the save_map service:
+```
+rosservice call /save_map "filepath: 'path/to/file.ply'"
+```
+
+Resolution for clouds can be adjusted using the following service:
+```
+rosservice call /set_map_resolution "visual: 0.02 stored: 0.02"
+```
+Visual resolution is the cloud published on /map_points2. Stored resolution is the resolution of the cloud stored in memory. This is the cloud saved to file using the save_map service. If using a resolution of 0.01 or less it is adviced to keep the mapping paused and use single_step_map service to capture clouds on request to avoid huge map data which can cause instability. 
