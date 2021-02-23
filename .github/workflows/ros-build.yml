@@ -16,6 +16,12 @@ jobs:
       ROS_DISTRO: kinetic
     steps:
       - uses: actions/checkout@v2
+      - name: Install Pylon
+        run: |
+          wget -O pylon.deb https://www.baslerweb.com/fp-1589378344/media/downloads/software/pylon_software/pylon_6.1.1.19861-deb0_amd64.deb
+          sudo dpkg -i pylon.deb
+          echo "Pylon root $PYLON_ROOT"
+          $PYLON_ROOT/bin/pylon-config --version-major
       - name: Install ROS
         run: |
             sudo sh -c "echo \"deb http://packages.ros.org/ros/ubuntu $ROS_CI_DESKTOP main\" > /etc/apt/sources.list.d/ros-latest.list"
@@ -28,6 +34,10 @@ jobs:
             # Prepare rosdep to install dependencies.
             sudo rosdep init
             rosdep update --include-eol-distros  # Support EOL distros.
+      - name: Pylon rosdep
+        run: |
+            sudo sh -c 'echo "yaml https://raw.githubusercontent.com/i3drobotics/pylon_camera/master/rosdep/pylon_sdk.yaml " > /etc/ros/rosdep/sources.list.d/15-plyon_camera.list'
+            rosdep update --include-eol-distros
       - name: Setup ROS workspace
         run: |
           source /opt/ros/$ROS_DISTRO/setup.bash
