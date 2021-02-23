@@ -1,6 +1,8 @@
 # i3dr_kinova-ros
 ROS driver for using stereo camera systems from Industrial 3D Robotics with Kinova robotic arms.  
 
+***WARNING: Currently untested on real Kinova robot, use with caution!***
+
 ## Status
 ![ROS Build](https://github.com/i3drobotics/i3dr_kinova-ros/workflows/ROS%20Build/badge.svg?event=push)
 
@@ -53,16 +55,12 @@ catkin build
 ```
 
 ## Run
-Plug in the Titania stereo camera to your machine and use the following launch file to test:
-```
-roslaunch i3dr_titania titania.launch
-```
-
-To check everything is working add the paramter 'rviz':
+### Run Titania
+Plug in the Titania stereo camera to your machine and use the following launch file:
 ```
 roslaunch i3dr_titania titania.launch rviz:=true
 ```
-
+### Gazebo titania kinova simulation
 To run a gazebo simulation of the stereo camera system mounted on a Kinova robotic arm run the following launcher:
 ```
 roslaunch i3dr_kinova_control kinova_titania.launch rviz:=true
@@ -72,13 +70,13 @@ This can also be run with Moveit to control the robot:
 ```
 roslaunch i3dr_kinova_control kinova_titania.launch rviz:=true moveit:=true
 ```
-
-To mozaic point clouds to create a map as the robot moves:
+### Mapping
+To mozaic point clouds to create a map as the robot moves, after running the 'kinova_titania' launcher run:
 ```
-roslaunch i3dr_kinova_control kinova_titania.launch rviz:=true moveit:=true mozaic:=true
+roslaunch i3dr_kinova_control mozaic.launch
 ```
 
 Once the map is complete you can save the map to a file using the following command:
 ```
-rosnode i3dr_pcl_tools save_pcl pcl2_input:=/i3dr_titania/map_points2 pcl_filepath:=path/to/file.ply
+rosrun i3dr_pcl_tools save_pcl _pcl2_input:=/i3dr_titania/map_points2 _pcl_filepath:=path/to/file.ply
 ```

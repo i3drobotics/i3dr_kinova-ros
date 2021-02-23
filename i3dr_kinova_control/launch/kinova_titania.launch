@@ -4,8 +4,8 @@
     <!-- SETUP ARGUMENTS -->
     <!-- enable/disable functions -->
     <arg name="rviz" default="false" />
-    <arg name="sim" default="true"/>
-    <arg name="moveit" default="true"/>
+    <arg name="sim" default="true"/> <!-- WARNING: Untested in real robot use with caution! -->
+    <arg name="moveit" default="false"/>
     <arg name="mozaic" default="false"/>
     <arg name="octomap" default="false"/>
 
@@ -14,6 +14,7 @@
     <arg name="camera_name" default="i3dr_titania"/>
     <arg name="kinova_robotType" default="j2s7s000"/>
     <arg name="kinova_robotName" default="$(arg kinova_robotType)"/>
+    <arg name="kinova_robotSerial" default="PJ00000001030703130"/>
     <arg name="use_trajectory_controller" default="true"/>
 
     <group if="$(arg sim)">
@@ -36,6 +37,15 @@
             -J $(arg kinova_robotType)_joint_6 1.4
             -J $(arg kinova_robotType)_joint_7 0.0" />
     </group>
+    <group unless="$(arg sim)">
+        <!-- WARNING: Untested in real robot use with caution! -->
+        <include file="$(find kinova_bringup)/launch/kinova_robot.launch">
+            <arg name="kinova_robotType" value="$(arg kinova_robotType)"/>
+            <arg name="kinova_robotName" value="$(arg kinova_robotName)" />
+            <arg name="kinova_robotSerial" value="$(arg kinova_robotSerial)" />
+            <arg name="use_urdf" value="false" />
+        </include>
+    </group>
 
     <!-- Load the URDF into the ROS Parameter Server -->
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find i3dr_kinova_control)/urdf/i3dr_titania_kinova_standalone.urdf.xacro' en_imu:=$(arg imu) camera_name:=$(arg camera_name) en_mesh:=$(arg camera_mesh) arm_name:=$(arg kinova_robotType)"/>
@@ -57,47 +67,6 @@
         <arg name="depth_max" value="10"/>
         <arg name="stereo_algorithm" value="0"/>
     </include>
-
-    <!-- Point cloud mozaicing -->
-    <group if="$(arg mozaic)">
-        <!-- Transform point cloud from camera to world space -->
-        <node name="pcl_point_tf" pkg="i3dr_pcl_tools" type="transform_pcl_frame" output="screen" >
-            <param name="tf" type="string" value="world" />
-            <param name="pcl2_input" type="string" value="/$(arg camera_name)/points2" />
-            <param name="pcl2_output" type="string" value="/$(arg camera_name)/world_points2" />
-            <param name="pcl_output" type="string" value="/$(arg camera_name)/world_points" />
-        </node>
-        <!-- Point cloud mozaicing -->
-        <node name="pcl_map" pkg="i3dr_pcl_tools" type="pcl_map" output="screen" >
-            <param name="resolution" type="double" value="0.01" />
-            <param name="pcl2_input" type="string" value="/$(arg camera_name)/world_points2" />
-        <param name="pcl2_output" type="string" value="/$(arg camera_name)/map_points2" />
-        <param name="pcl_output" type="string" value="/$(arg camera_name)/map_points" />
-        </node>
-    </group>
-
-    <group if="$(arg octomap)">
-        <!-- Transform point cloud from camera to world space -->
-        <node name="pcl_point_tf" pkg="i3dr_pcl_tools" type="transform_pcl_frame" output="screen" >
-            <param name="tf" type="string" value="world" />
-            <param name="pcl2_input" type="string" value="/$(arg camera_name)/points2" />
-            <param name="pcl2_output" type="string" value="/$(arg camera_name)/world_points2" />
-            <param name="pcl_output" type="string" value="/$(arg camera_name)/world_points" />
-        </node>
-        <!-- Octomap -->
-        <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
-            <param name="resolution" value="0.01" />
-
-            <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
-            <param name="frame_id" type="string" value="/world" />
-
-            <!-- maximum range to integrate (speedup!) -->
-            <param name="sensor_model/max_range" value="5" />
-
-            <!-- data source to integrate (PointCloud2) -->
-            <remap from="cloud_in" to="/$(arg camera_name)/world_points2" />
-        </node>
-    </group>
 
     <group if="$(arg moveit)">
         <include file="$(find i3dr_titania_kinova_moveit_config)/launch/move_group_$(arg kinova_robotType).launch">

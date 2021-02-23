@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--XML-->
+<launch>
+    <!-- SETUP ARGUMENTS -->
+    <arg name="camera_name" default="i3dr_titania"/>
+
+    <!-- Point cloud mozaicing -->
+    <!-- Transform point cloud from camera to world space -->
+    <node name="pcl_point_tf" pkg="i3dr_pcl_tools" type="transform_pcl_frame" output="screen" >
+        <param name="tf" type="string" value="world" />
+        <param name="pcl2_input" type="string" value="/$(arg camera_name)/points2" />
+        <param name="pcl2_output" type="string" value="/$(arg camera_name)/world_points2" />
+        <param name="pcl_output" type="string" value="/$(arg camera_name)/world_points" />
+    </node>
+    <!-- Point cloud mozaicing -->
+    <node name="pcl_map" pkg="i3dr_pcl_tools" type="pcl_map" output="screen" >
+        <param name="resolution" type="double" value="0.01" />
+        <param name="pcl2_input" type="string" value="/$(arg camera_name)/world_points2" />
+    <param name="pcl2_output" type="string" value="/$(arg camera_name)/map_points2" />
+    <param name="pcl_output" type="string" value="/$(arg camera_name)/map_points" />
+    </node>
+
+</launch>
