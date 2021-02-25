@@ -45,7 +45,7 @@ rosdep update
 ```
 
 ### I3DRSGM
-For high-quality, fast stereo matching request I3DRSGM library installer from I3DR (info@i3drobotics.com)
+For high-quality, fast stereo matching request I3DRSGM library installer and license from I3DR (info@i3drobotics.com)
 
 Install library deb:
 ```
@@ -54,6 +54,11 @@ sudo dpkg -i Phobos-1.0.54-x86_64_reducedTemplates.deb
 Add this line to the end of ~/.bashrc to add library path to LD_LIBRARY_PATH variable:
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/Phobos/lib/
+```
+As I3DR Stereo Matcher uses CUDA the following enviromental varaiables should be set to avoid JIT recompiling:
+```
+export CUDA_CACHE_MAXSIZE=2147483648
+export CUDA_CACHE_DISABLE=0
 ```
 Restart the shell or 'source ~/.bashrc' to make sure these variables are set.
 
@@ -69,6 +74,15 @@ Build using catkin (tested with catkin_make and catkin_build):
 catkin_make
 or
 catkin build
+```
+To build with the I3DR Stereo Matcher use the following command:
+
+``` bash
+catkin_make -DWITH_I3DRSGM=ON
+```
+We will provide you with a license file that should be placed in the following folder after building the workspace:
+```
+/path/to/repo/devel/lib/i3dr_stereo_camera/yourlicense.lic
 ```
 
 ## Run
