@@ -8,6 +8,7 @@ ROS driver for using stereo camera systems from Industrial 3D Robotics with Kino
 
 ## Install
 
+### Setup workspace
 For an easy setup, a rosinstall file is provided in 'install' folder of this repo which can be used to get this package and it's dependent ros packages in your workspace. 
 In your ROS workspace use the following command:
 ```
@@ -31,6 +32,7 @@ git clone https://github.com/i3drobotics/i3dr_kinova-ros.git
 git clone https://github.com/i3drobotics/kinova-ros.git
 ```
 
+### Camera dependencies
 The pylon_camera package used by this package requires the pylonSDK to be installed on your system. Please download and install the pylon debian package for your architecture from [here](https://www.baslerweb.com/en/sales-support/downloads/software-downloads/#type=pylonsoftware;language=all;version=all;os=all)  
 Look for 'pylon 6.x.x Camera Software Suite Linux x86 (64 Bit) - Debian Installer Package'
 
@@ -42,11 +44,26 @@ sudo sh -c 'echo "yaml https://raw.githubusercontent.com/i3drobotics/pylon_camer
 rosdep update
 ```
 
-To install package dependences use rodep:
+### I3DRSGM
+For high-quality, fast stereo matching request I3DRSGM library installer from I3DR (info@i3drobotics.com)
+
+Install library deb:
+```
+sudo dpkg -i Phobos-1.0.54-x86_64_reducedTemplates.deb
+```
+Add this line to the end of ~/.bashrc to add library path to LD_LIBRARY_PATH variable:
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/Phobos/lib/
+```
+Restart the shell or 'source ~/.bashrc' to make sure these variables are set.
+
+### Package dependencies
+To install package dependencies use rodep:
 ```
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
+### Build workspace
 Build using catkin (tested with catkin_make and catkin_build):
 ```
 catkin_make
