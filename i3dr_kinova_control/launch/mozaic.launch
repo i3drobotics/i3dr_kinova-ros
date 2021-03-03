@@ -2,21 +2,21 @@
 <!--XML-->
 <launch>
     <!-- SETUP ARGUMENTS -->
-    <arg name="camera_name" default="i3dr_titania"/>
+    <arg name="camera_namespace" default="i3dr_titania"/>
 
     <!-- Point cloud mozaicing -->
     <!-- Transform point cloud from camera to world space -->
     <node name="pcl_point_tf" pkg="i3dr_pcl_tools" type="transform_pcl_frame" output="screen" >
         <param name="tf" type="string" value="world" />
-        <param name="cloud_input" type="string" value="/$(arg camera_name)/points2" />
-        <param name="cloud_output" type="string" value="/$(arg camera_name)/world_points2" />
+        <param name="cloud_input" type="string" value="/$(arg camera_namespace)/points2" />
+        <param name="cloud_output" type="string" value="/$(arg camera_namespace)/world_points2" />
     </node>
     <!-- Point cloud mozaicing -->
     <node name="pcl_map" pkg="i3dr_pcl_tools" type="pcl_map" output="screen" >
         <param name="visual_resolution" type="double" value="0.03" />
         <param name="stored_resolution" type="double" value="0.03" />
-        <param name="cloud_input" type="string" value="/$(arg camera_name)/world_points2" />
-        <param name="cloud_output" type="string" value="/$(arg camera_name)/map_points2" />
+        <param name="cloud_input" type="string" value="/$(arg camera_namespace)/world_points2" />
+        <param name="cloud_output" type="string" value="/$(arg camera_namespace)/map_points2" />
         <param name="pause_on_start" type="bool" value="true" />
     </node>
 

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+Copyright (c) 2019, I3D Robotics Ltd.
+-->
+
+<robot name="gen3" 
+    xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:arg name="en_imu" default="false"/>
+    <xacro:arg name="camera_name" default="i3dr_titania"/>
+    <xacro:arg name="en_mesh" default="true"/>
+
+    <xacro:include filename="$(find i3dr_titania)/urdf/titania.urdf.xacro" />
+    <!-- collision disabled in camera to avoid robot getting stuck in the floor at startup -->
+    <xacro:titania_camera camera_name="$(arg camera_name)" en_collision="false" en_mesh="$(arg en_mesh)" en_imu="$(arg en_imu)"/>
+
+    <xacro:include filename="$(find i3dr_kinova_control)/urdf/interfacing_plate.urdf.xacro" />
+    <!-- collision disabled in camera to avoid robot getting stuck in the floor at startup -->
+    <xacro:interfacing_plate en_collision="false" />
+
+    <xacro:arg name="arm" default="gen3" />
+    <xacro:arg name="dof" default="7" />
+    <xacro:arg name="vision" default="true" />
+
+    <xacro:arg name="gripper" default="" />
+
+    <xacro:arg name="sim" default="false" />
+    <xacro:arg name="prefix" default="" />
+
+    <xacro:include filename="$(find kortex_description)/robots/kortex_robot.xacro" />
+    <xacro:load_robot arm="$(arg arm)" gripper="$(arg gripper)" dof="$(arg dof)" vision="$(arg vision)" sim="$(arg sim)" prefix="$(arg prefix)" />
+
+    <joint name="kinova_interface_joint" type="fixed">
+        <parent link="end_effector_link" />
+        <child link = "interfacing_plate_base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+    <joint name="interface_titania_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="interfacing_plate_camera_mount_link" />
+        <child link="$(arg camera_name)_base_link" />
+    </joint>
+</robot>

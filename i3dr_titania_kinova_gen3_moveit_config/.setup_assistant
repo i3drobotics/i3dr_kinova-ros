@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: i3dr_kinova_control
+    relative_path: urdf/i3dr_titania_kinova_gen3_standalone.urdf.xacro
+    xacro_args: "--inorder arm:=gen3"
+  SRDF:
+    relative_path: config/7dof/gen3.srdf.xacro
+  CONFIG:
+    author_name: Alexandre Vannobel
+    author_email: avannobel@kinova.ca
+    generated_timestamp: 1551811297

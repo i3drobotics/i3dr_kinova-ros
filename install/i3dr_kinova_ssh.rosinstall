@@ -26,3 +26,7 @@
     local-name: kinova-ros
     uri: git@github.com:i3drobotics/kinova-ros.git
     version: master
+- git:
+    local-name: ros_kortex
+    uri: git@github.com/Kinovarobotics/ros_kortex.git
+    version: kinetic-devel

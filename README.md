@@ -30,6 +30,7 @@ git clone https://github.com/i3drobotics/camera_control_msgs.git
 git clone https://github.com/i3drobotics/pylon_camera.git
 git clone https://github.com/i3drobotics/i3dr_kinova-ros.git
 git clone https://github.com/i3drobotics/kinova-ros.git
+git clone https://github.com/Kinovarobotics/ros_kortex.git
 ```
 
 ### Camera dependencies
@@ -63,8 +64,13 @@ export CUDA_CACHE_DISABLE=0
 Restart the shell or 'source ~/.bashrc' to make sure these variables are set.
 
 ### Package dependencies
-To install package dependencies use rodep:
+To install package dependencies use the following commands:
 ```
+sudo apt install python3 python3-pip
+sudo python3 -m pip install conan
+conan config set general.revisions_enabled=1
+conan profile new default --detect > /dev/null
+conan profile update settings.compiler.libcxx=libstdc++11 default
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
