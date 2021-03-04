@@ -76,7 +76,7 @@ Restart the shell or 'source ~/.bashrc' to make sure these variables are set.
 ### Package dependencies
 To install package dependencies use the following commands:
 ```
-sudo apt install python3 python3-pip
+sudo apt install python3 python3-pip python3-setuptools
 sudo python3 -m pip install conan
 conan config set general.revisions_enabled=1
 conan profile new default --detect > /dev/null
@@ -107,18 +107,21 @@ Plug in the Titania stereo camera to your machine and use the following launch f
 ```
 roslaunch i3dr_titania titania.launch rviz:=true
 ```
-### Gazebo titania kinova simulation
-To run a gazebo simulation of the stereo camera system mounted on a Kinova robotic arm run the following launcher:
+
+### Run mounted on Kinova robot
+To run on real hardware use the following launcher:
 ```
-roslaunch i3dr_kinova_control kinova_titania.launch rviz:=true
+roslaunch i3dr_kinova_control gen3_driver_titania.launch
 ```
 
-This can also be run with Moveit to control the robot:
+### Gazebo
+To run a gazebo simulation of the stereo camera system mounted on a Kinova robotic arm run the following launcher:
 ```
-roslaunch i3dr_kinova_control kinova_titania.launch rviz:=true moveit:=true
+roslaunch i3dr_kinova_control gen3_titania.launch
 ```
+
 ### Mapping
-To mozaic point clouds to create a map as the robot moves, after running the 'kinova_titania' launcher run:
+To mozaic point clouds to create a map as the robot moves, after running the 'gen3_driver_titania' or 'gen3_titania' launcher run:
 ```
 roslaunch i3dr_kinova_control mozaic.launch
 ```
