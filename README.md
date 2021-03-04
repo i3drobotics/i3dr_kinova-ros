@@ -45,6 +45,16 @@ sudo sh -c 'echo "yaml https://raw.githubusercontent.com/i3drobotics/pylon_camer
 rosdep update
 ```
 
+### Kinova Kortex dependencies
+Kinova Kortex package relies on conan for builds. Install using the following commands:
+```
+sudo apt install python3 python3-pip
+sudo python3 -m pip install conan
+conan config set general.revisions_enabled=1
+conan profile new default --detect > /dev/null
+conan profile update settings.compiler.libcxx=libstdc++11 default
+```
+
 ### I3DRSGM
 For high-quality, fast stereo matching request I3DRSGM library installer and license from I3DR (info@i3drobotics.com)
 
