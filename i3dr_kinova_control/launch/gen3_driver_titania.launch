@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
+    <!-- Camera parameters -->
+    <arg name="camera_name" default="i3dr_titania"/>
     <arg name="stereo_algorithm" default="0"/>
     
     <!-- Arm configuration -->
@@ -107,7 +109,8 @@
         <arg name="state_publisher" value="false"/> <!-- state publisher is handelled by this launcher instead-->
         <arg name="depth_max" value="10"/>
         <arg name="stereo_algorithm" value="$(arg stereo_algorithm)"/>
-        <arg name="camera_namespace" value="i3dr_titania"/>
+        <arg name="camera_namespace" value="$(arg camera_name)"/>
+        <arg name="urdf_namespace" value="i3dr_titania"/>
         <arg name="calibration_folder" value="$(arg calibration_folder)"/>
     </include>
 
