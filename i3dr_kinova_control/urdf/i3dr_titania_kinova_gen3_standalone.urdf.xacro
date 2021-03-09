@@ -33,7 +33,7 @@ Copyright (c) 2019, I3D Robotics Ltd.
     <joint name="kinova_interface_joint" type="fixed">
         <parent link="end_effector_link" />
         <child link = "interfacing_plate_base_link" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 1.570796327" />
     </joint>
 
     <joint name="interface_titania_joint" type="fixed">

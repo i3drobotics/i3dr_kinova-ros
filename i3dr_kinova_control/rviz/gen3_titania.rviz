@@ -8,6 +8,7 @@ Panels:
         - /TF1/Tree1
         - /DepthImage1
         - /LeftImage1
+        - /MozaicCloud1
       Splitter Ratio: 0.785897434
     Tree Height: 150
   - Class: rviz/Selection
@@ -673,7 +674,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.00999999978
       Style: Points
-      Topic: /i3dr_titania/map_points2
+      Topic: /my_gen3/i3dr_titania/map_points2
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -778,18 +779,18 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.262963325
-        Y: 0.235900685
-        Z: 0.730159819
+        X: 0.476562172
+        Y: 0.359238774
+        Z: 0.399971932
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.320202172
+      Pitch: 0.470202059
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.24623108
+      Yaw: 4.99441195
     Saved: ~
 Window Geometry:
   DepthImage:

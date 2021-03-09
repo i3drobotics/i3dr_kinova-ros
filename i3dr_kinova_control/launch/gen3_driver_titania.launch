@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <launch>
+
+    <arg name="stereo_algorithm" default="0"/>
     
     <!-- Arm configuration -->
     <arg name="arm" default="gen3"/>
@@ -36,7 +38,7 @@
 
     <!-- Load the description for the robot -->
     <!-- Without gripper -->
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find i3dr_kinova_control)/urdf/i3dr_titania_kinova_standalone_new.urdf.xacro dof:=$(arg dof) vision:=$(arg vision) sim:=false"
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find i3dr_kinova_control)/urdf/i3dr_titania_kinova_gen3_standalone.urdf.xacro dof:=$(arg dof) vision:=$(arg vision) sim:=false"
            if="$(eval not arg('gripper'))"/>
 
     <!-- Start the kortex_driver node -->
@@ -104,7 +106,7 @@
         <arg name="camera_mesh" value="true"/> <!-- display detailed mesh of camera -->
         <arg name="state_publisher" value="false"/> <!-- state publisher is handelled by this launcher instead-->
         <arg name="depth_max" value="10"/>
-        <arg name="stereo_algorithm" value="2"/>
+        <arg name="stereo_algorithm" value="$(arg stereo_algorithm)"/>
         <arg name="camera_namespace" value="i3dr_titania"/>
         <arg name="calibration_folder" value="$(arg calibration_folder)"/>
     </include>

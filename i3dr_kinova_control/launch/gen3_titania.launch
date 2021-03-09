@@ -5,7 +5,7 @@
     <arg name="imu" default="false"/>
     <arg name="camera_mesh" default="true"/>
     <arg name="camera_name" default="i3dr_titania"/>
-    <arg name="stereo_algorithm" default="2"/>
+    <arg name="stereo_algorithm" default="0"/>
 
     <!-- Start the GUIs -->
     <arg name="start_gazebo" default="true"/>
@@ -22,7 +22,8 @@
     <arg name="dof" default="7" if="$(eval arg('arm') == 'gen3')"/> <!-- Number of degrees of freedom of the arm -->
     <arg name="dof" default="6" if="$(eval arg('arm') == 'gen3_lite')"/> <!-- Number of degrees of freedom of the arm -->
     <arg name="vision" default="true"/> <!-- True if the arm has a Vision module -->
-    
+    <arg name="use_hard_limits" default="false"/> <!-- Set soft limits as hard limits (Gen3 only) -->
+
     <!-- Default gripper for Gen3 is none, default gripper for Gen3 lite is gen3_lite_2f -->
     <arg name="gripper" default="" if="$(eval arg('arm') == 'gen3')"/>
     <arg name="gripper" default="gen3_lite_2f" if="$(eval arg('arm') == 'gen3_lite')"/>
@@ -147,8 +148,10 @@
     </group>
 
     <!-- Choose simulated or real-world camera calibration -->
-    <arg if="$(arg sim)" name="calibration_folder" default="$(find i3dr_titania)/calibration/001"/>
+    <!--<arg if="$(arg sim)" name="calibration_folder" default="$(find i3dr_titania)/calibration/001"/>
     <arg unless="$(arg sim)" name="calibration_folder" default="$(find i3dr_titania)/calibration/6465696d6f736i"/>
+    -->
+    <arg name="calibration_folder" default="$(find i3dr_titania)/calibration/6465696d6f736i"/>
     <!-- Start Titania -->
     <include file="$(find i3dr_titania)/launch/titania.launch">
         <arg name="sim" value="false"/> <!-- simulated camera urdf is loaded from this launcher -->
@@ -157,7 +160,7 @@
         <arg name="state_publisher" value="false"/> <!-- state publisher is handelled by this launcher instead-->
         <arg name="depth_max" value="10"/>
         <arg name="stereo_algorithm" value="$(arg stereo_algorithm)"/>
-        <arg name="camera_namespace" value="$(arg robot_name)/i3dr_titania"/>
+        <arg name="camera_namespace" value="$(arg robot_name)/$(arg camera_name)"/>
         <arg name="urdf_namespace" value="i3dr_titania"/>
         <arg name="calibration_folder" value="$(arg calibration_folder)"/>
     </include>
