@@ -3,7 +3,7 @@
 
     <!-- Camera parameters -->
     <arg name="camera_name" default="i3dr_titania"/>
-    <arg name="stereo_algorithm" default="0"/>
+    <arg name="stereo_algorithm" default="2"/>
     
     <!-- Arm configuration -->
     <arg name="arm" default="gen3"/>

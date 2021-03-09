@@ -5,7 +5,7 @@
     <arg name="imu" default="false"/>
     <arg name="camera_mesh" default="true"/>
     <arg name="camera_name" default="i3dr_titania"/>
-    <arg name="stereo_algorithm" default="0"/>
+    <arg name="stereo_algorithm" default="2"/>
 
     <!-- Start the GUIs -->
     <arg name="start_gazebo" default="true"/>
