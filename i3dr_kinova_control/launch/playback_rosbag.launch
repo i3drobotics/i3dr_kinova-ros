@@ -1,0 +1,43 @@
+<launch>
+    <!-- Camera parameters -->
+    <arg name="imu" default="false"/>
+    <arg name="camera_mesh" default="true"/>
+    <arg name="camera_name" default="i3dr_titania"/>
+    <arg name="stereo_algorithm" default="2"/>
+
+    <arg name="start_rviz" default="true"/>
+
+    <arg name="arm" default="gen3"/>
+    <arg name="dof" default="7" if="$(eval arg('arm') == 'gen3')"/> <!-- Number of degrees of freedom of the arm -->
+    <arg name="dof" default="6" if="$(eval arg('arm') == 'gen3_lite')"/> <!-- Number of degrees of freedom of the arm -->
+    <arg name="vision" default="true"/> <!-- True if the arm has a Vision module -->
+
+    <arg name="robot_name" default="my_$(arg arm)"/>
+    <arg name="prefix" default=""/>
+
+    <param name ="use_sim_time" value="true"/>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find i3dr_kinova_control)/urdf/i3dr_titania_kinova_gen3_standalone.urdf.xacro dof:=$(arg dof) vision:=$(arg vision) sim:=true prefix:=$(arg prefix)"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+
+    <arg name="calibration_folder" default="$(find i3dr_titania)/calibration/6465696d6f736i"/>
+    <!-- Start Titania -->
+    <include file="$(find i3dr_titania)/launch/titania.launch">
+        <arg name="sim" value="false"/> <!-- simulated camera urdf is loaded from this launcher -->
+        <arg name="real" value="false"/> <!-- launch real camera when sim=false -->
+        <arg name="camera_from_bag" value="true"/>
+        <arg name="bag_file" value="/home/i3drwl001/stereo_matching.bag"/>
+        <arg name="camera_mesh" value="true"/> <!-- display detailed mesh of camera -->
+        <arg name="state_publisher" value="false"/> <!-- state publisher is handelled by this launcher instead-->
+        <arg name="depth_max" value="10"/>
+        <arg name="stereo_algorithm" value="$(arg stereo_algorithm)"/>
+        <arg name="camera_namespace" value="$(arg camera_name)"/>
+        <arg name="urdf_namespace" value="i3dr_titania"/>
+        <arg name="calibration_folder" value="$(arg calibration_folder)"/>
+    </include>
+
+    <node if="$(arg start_rviz)" name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false"
+        args="-d $(find i3dr_kinova_control)/rviz/gen3_titania_bag.rviz" output="screen">
+    </node>
+
+</launch>
