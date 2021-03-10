@@ -13,8 +13,8 @@
     </node>
     <!-- Point cloud mozaicing -->
     <node name="pcl_map" pkg="i3dr_pcl_tools" type="pcl_map" output="screen" >
-        <param name="visual_resolution" type="double" value="0.03" />
-        <param name="stored_resolution" type="double" value="0.03" />
+        <param name="visual_resolution" type="double" value="0.001" />
+        <param name="stored_resolution" type="double" value="0.001" />
         <param name="cloud_input" type="string" value="/$(arg camera_namespace)/world_points2" />
         <param name="cloud_output" type="string" value="/$(arg camera_namespace)/map_points2" />
         <param name="pause_on_start" type="bool" value="true" />

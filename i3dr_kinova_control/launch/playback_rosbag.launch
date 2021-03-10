@@ -1,5 +1,5 @@
 <launch>
-    <arg name="bag_file" default="/home/bknight/stereo-images.bag"/>
+    <arg name="bag_file" default="/home/i3drwl001/stereo-images.bag"/>
 
     <!-- Camera parameters -->
     <arg name="imu" default="false"/>
