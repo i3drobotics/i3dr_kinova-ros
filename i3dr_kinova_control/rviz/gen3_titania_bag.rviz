@@ -5,11 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /TF1
         - /TF1/Frames1
         - /TF1/Tree1
-        - /TitaniaCloud1
-        - /TitaniaCloud2
       Splitter Ratio: 0.785897434
     Tree Height: 602
   - Class: rviz/Selection
@@ -58,61 +55,61 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: false
+        All Enabled: true
         base_link:
-          Value: false
+          Value: true
         bracelet_link:
-          Value: false
+          Value: true
         camera_color_frame:
-          Value: false
+          Value: true
         camera_depth_frame:
-          Value: false
+          Value: true
         camera_link:
-          Value: false
+          Value: true
         end_effector_link:
-          Value: false
+          Value: true
         forearm_link:
-          Value: false
+          Value: true
         half_arm_1_link:
-          Value: false
+          Value: true
         half_arm_2_link:
-          Value: false
+          Value: true
         i3dr_titania_base_link:
-          Value: false
+          Value: true
         i3dr_titania_cameraLeft:
-          Value: false
+          Value: true
         i3dr_titania_cameraLeft_optical:
-          Value: false
+          Value: true
         i3dr_titania_cameraRight:
-          Value: false
+          Value: true
         i3dr_titania_cameraRight_optical:
-          Value: false
+          Value: true
         i3dr_titania_center:
-          Value: false
+          Value: true
         i3dr_titania_depth_optical_frame:
-          Value: false
+          Value: true
         i3dr_titania_mount_base_link:
-          Value: false
+          Value: true
         i3dr_titania_mount_point_1:
-          Value: false
+          Value: true
         i3dr_titania_mount_point_2:
-          Value: false
+          Value: true
         i3dr_titania_probe_mount:
-          Value: false
+          Value: true
         interfacing_plate_base_link:
-          Value: false
+          Value: true
         interfacing_plate_camera_mount_90_link:
-          Value: false
+          Value: true
         interfacing_plate_camera_mount_link:
-          Value: false
+          Value: true
         shoulder_link:
-          Value: false
+          Value: true
         spherical_wrist_1_link:
-          Value: false
+          Value: true
         spherical_wrist_2_link:
-          Value: false
+          Value: true
         tool_frame:
-          Value: false
+          Value: true
         world:
           Value: true
       Marker Scale: 0.200000003
@@ -164,18 +161,140 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: false
+      Enabled: true
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        bracelet_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_color_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        end_effector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        half_arm_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        half_arm_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        i3dr_titania_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_cameraLeft:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_cameraLeft_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_cameraRight:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_cameraRight_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        i3dr_titania_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_mount_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_mount_point_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_mount_point_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        i3dr_titania_probe_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        interfacing_plate_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        interfacing_plate_camera_mount_90_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        interfacing_plate_camera_mount_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        spherical_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        spherical_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: false
+      Value: true
       Visual Enabled: true
     - Class: rviz/Image
       Enabled: true
@@ -255,7 +374,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: RGB8
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -272,7 +391,37 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: TitaniaWorldCloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00999999978
+      Style: Points
+      Topic: /i3dr_titania/world_points2
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -311,36 +460,6 @@ Visualization Manager:
         {}
       Queue Size: 100
       Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: RGB8
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: TitaniaCloud
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.00999999978
-      Style: Points
-      Topic: /i3dr_titania/world_points2
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 117; 117; 117
@@ -366,25 +485,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.85937804
+      Distance: 1.4712137
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.403092623
-        Y: -0.100677252
-        Z: 0.317213118
+        X: 0.357714862
+        Y: -0.0650613531
+        Z: 0.406582326
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.295201987
+      Pitch: 0.465201974
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.30939007
+      Yaw: 5.45939255
     Saved: ~
 Window Geometry:
   DepthImage:
