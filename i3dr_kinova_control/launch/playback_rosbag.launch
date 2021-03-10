@@ -1,4 +1,6 @@
 <launch>
+    <arg name="bag_file" default="/home/bknight/stereo-images.bag"/>
+
     <!-- Camera parameters -->
     <arg name="imu" default="false"/>
     <arg name="camera_mesh" default="true"/>
@@ -26,7 +28,7 @@
         <arg name="sim" value="false"/> <!-- simulated camera urdf is loaded from this launcher -->
         <arg name="real" value="false"/> <!-- launch real camera when sim=false -->
         <arg name="camera_from_bag" value="true"/>
-        <arg name="bag_file" value="/home/i3drwl001/stereo_matching.bag"/>
+        <arg name="bag_file" value="$(arg bag_file)"/>
         <arg name="camera_mesh" value="true"/> <!-- display detailed mesh of camera -->
         <arg name="state_publisher" value="false"/> <!-- state publisher is handelled by this launcher instead-->
         <arg name="depth_max" value="10"/>
