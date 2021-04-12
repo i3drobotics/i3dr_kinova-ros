@@ -47,6 +47,7 @@ jobs:
         run: |
             sudo apt install python3 python3-pip python3-setuptools
             sudo python3 -m pip install conan
+            sudo python3 -m pip uninstall -y enum34
             conan config set general.revisions_enabled=1
             conan profile new default --detect > /dev/null
             conan profile update settings.compiler.libcxx=libstdc++11 default
