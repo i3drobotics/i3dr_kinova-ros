@@ -1,19 +1,19 @@
 - git:
     local-name: i3dr_stereo_camera-ros
     uri: git@github.com:i3drobotics/i3dr_stereo_camera-ros.git
-    version: master
+    version: main
 - git:
     local-name: i3dr_pcl_tools-ros
     uri: git@github.com:i3drobotics/i3dr_pcl_tools-ros.git
-    version: master
+    version: main
 - git:
     local-name: i3dr_titania-ros
     uri: git@github.com:i3drobotics/i3dr_titania-ros.git
-    version: master
+    version: main
 - git:
     local-name: pylon_camera
     uri: git@github.com:i3drobotics/pylon_camera.git
-    version: master
+    version: main
 - git:
     local-name: camera_control_msgs
     uri: git@github.com:i3drobotics/camera_control_msgs.git
@@ -25,7 +25,7 @@
 - git:
     local-name: kinova-ros
     uri: git@github.com:i3drobotics/kinova-ros.git
-    version: master
+    version: main
 - git:
     local-name: ros_kortex
     uri: git@github.com/Kinovarobotics/ros_kortex.git
